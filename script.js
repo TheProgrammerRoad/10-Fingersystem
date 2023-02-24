@@ -1,7 +1,5 @@
 /** * Todo
  *
- * Version 3
- * 
  * Include transition: I think I need to use translateX instead of left = ...
  *
  * A Enter hit doesn't get recognized as correct. Also it starts with &. What happens currently if the current character is coincidently & too?
