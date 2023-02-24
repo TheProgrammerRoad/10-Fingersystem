@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+/***************************************************************************************************/
+/*Static Container*/
+/***************************************************************************************************/
+.StaticContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.IndicatorArrow {
+  margin-top: 60vh;
+  transform: translate(0, -40px); /*Die Hälfte des Character Containers nach oben*/
+  width: 50px;
+  height: 50px;
+}
+
+.Timer {
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+/***************************************************************************************************/
+/*Character Container*/
+/***************************************************************************************************/
+.Characters {
+  position: absolute;
+  font-size: 5em;
+  white-space: pre; 
+  top: 50vh;
+  left: 50vw;
+  transform: translate(0, -40px); /*Die Hälfte des Character Containers nach oben*/
+  
+}
