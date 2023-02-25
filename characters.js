@@ -24,9 +24,11 @@ function getRandomCharacter() {
 }
 
 /**
- * Adds a <span> Element to the Characters Container
+ * Fügt dem Element eElement ein Div hinzu, dass den Inhalt sCharacter hat
+ * @param {*} eElement Das Element zu dem das div hinzugefügt werden soll
+ * @param {*} sCharacter Der Inhalt, den das neue Element haben soll
  */
-function addCharacterDivElementToCharactersContainer(eElement, sCharacter) {
+function addCharacterContainer(eElement, sCharacter) {
   const eCharacterDiv = document.createElement("div");
   eCharacterDiv.innerHTML = sCharacter;
   eCharacterDiv.classList.add('Character');
@@ -38,8 +40,24 @@ function addCharacterDivElementToCharactersContainer(eElement, sCharacter) {
  * Sets a new block of characters to be displayed on the screen
  */
 function generateCharacterBlock() {
-  for (iCounter = 0; iCounter < giCharacterBlockSizeMax; iCounter++) {
+  for (iIndex = 0; iIndex < giCharacterBlockSizeMax; iIndex++) {
     const eCharacters = document.getElementById("charactersContainer");
-    addCharacterDivElementToCharactersContainer(eCharacters, getRandomCharacter());
+
+    // Das letzte Symbol soll immer 'Enter' sein
+    const sRandomCharacter = (iIndex === giCharacterBlockSizeMax - 1) ? gsNewLineSpecialCharacter : getRandomCharacter();
+
+      // 'Enter' soll das letzte Symbol sein
+    if (sRandomCharacter !== gsNewLineSpecialCharacter){
+      if ((iIndex % 3 === 0) && (iIndex !== 0)){
+      console.log("Jetzt Whitespace");
+      addCharacterContainer(eCharacters, "&nbsp;");
+      }
+
+      addCharacterContainer(eCharacters, sRandomCharacter);
+
+    }
+    else {
+      break;
+    }
   }
 }

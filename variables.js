@@ -3,7 +3,7 @@
  ***************************************************************************************************************************************/
 const gsNewLineSpecialCharacter = "&#8629;";
 let giKeyUpEventCounter = 0;
-const giCharacterBlockSizeMax = 50;
+const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen, Leerzeichen nicht mit einberechnet*/
 let gCharacters = [
     "a",
     "b",
