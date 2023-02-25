@@ -14,25 +14,31 @@ body {
 }
 
 .IndicatorArrow {
-  margin-top: 70vh;
+  margin-top: 60vh;
   width: 50px;
   height: 50px;
 }
 
 .Timer {
-  margin-top: 20px;
+  margin-top: 80px;
   font-size: 2em;
 }
 
 /***************************************************************************************************/
 /*Character Container*/
 /***************************************************************************************************/
-.Characters {
+.CharactersContainer {
   position: absolute;
-  font-size: 5em;
-  white-space: pre; 
+  display: flex;
+  align-items: center;
   top: 50vh;
   left: 50vw;
-  transform: translate(0, -40px); /*Die Hälfte des Character Containers nach oben*/
-  
+  transform: translate(0, -40px); /*Ein bisschen nach oben verschieben, damit ungefähr die Mitte des Containers in der Mitte ist, nicht die Ecke*/
+  font-size: 60px;
+}
+
+.Character {
+  display: inline-block;
+  background-color: red;
+  text-align: center;
 }
