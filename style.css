@@ -14,8 +14,7 @@ body {
 }
 
 .IndicatorArrow {
-  margin-top: 60vh;
-  transform: translate(0, -40px); /*Die Hälfte des Character Containers nach oben*/
+  margin-top: 70vh;
   width: 50px;
   height: 50px;
 }
