@@ -27,13 +27,16 @@ function getRandomCharacter() {
  * Fügt dem Element eElement ein Div hinzu, dass den Inhalt sCharacter hat
  * @param {*} eElement Das Element zu dem das div hinzugefügt werden soll
  * @param {*} sCharacter Der Inhalt, den das neue Element haben soll
+ * @returns Das neue Element
  */
 function addCharacterContainer(eElement, sCharacter) {
   const eCharacterDiv = document.createElement("div");
   eCharacterDiv.innerHTML = sCharacter;
-  eCharacterDiv.classList.add('Character');
+  eCharacterDiv.classList.add("Character");
 
   eElement.appendChild(eCharacterDiv);
+
+  return eCharacterDiv;
 }
 
 /**
@@ -44,20 +47,27 @@ function generateCharacterBlock() {
     const eCharacters = document.getElementById("charactersContainer");
 
     // Das letzte Symbol soll immer 'Enter' sein
-    const sRandomCharacter = (iIndex === giCharacterBlockSizeMax - 1) ? gsNewLineSpecialCharacter : getRandomCharacter();
+    const sRandomCharacter =
+      iIndex === giCharacterBlockSizeMax - 1
+        ? gsNewLineSpecialCharacter
+        : getRandomCharacter();
 
-      // 'Enter' soll das letzte Symbol sein
-    if (sRandomCharacter !== gsNewLineSpecialCharacter){
-      if ((iIndex % 3 === 0) && (iIndex !== 0)){
-      console.log("Jetzt Whitespace");
-      addCharacterContainer(eCharacters, "&nbsp;");
+    // 'Enter' soll das letzte Symbol sein
+    if (sRandomCharacter !== gsNewLineSpecialCharacter) {
+      if (iIndex % 3 === 0 && iIndex !== 0) {
+        addCharacterContainer(eCharacters, "&nbsp;");
       }
+    }
 
-      addCharacterContainer(eCharacters, sRandomCharacter);
-
+    eNewElement = addCharacterContainer(eCharacters, sRandomCharacter);
+    if (iIndex % 2 === 0) {
+      eNewElement.style.backgroundColor = "lightblue";
     }
     else {
-      break;
+      eNewElement.style.backgroundColor = "lightpink";
     }
+
+    if (sRandomCharacter === gsNewLineSpecialCharacter)
+      break;  
   }
 }
