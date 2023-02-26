@@ -2,42 +2,19 @@
  * Listener for a key press
  ****************************************************************************************************************************************/
 function moveCharacterBlockLeft() {
-  const eCharacter = document.getElementById("currentCharacter");
-  const sCharacter = eCharacter.innerHTML;
-
-  //Zeichenbreite Linkes Zeichen
-  const iCharacterWidthLeft = getCharacterWidth(
-    sCharacter.charAt(giKeyUpEventCounter)
-  );
-
-  //Zeichenbreite Rechtes Zeichen
-  const iCharacterWidthRight = getCharacterWidth(
-    sCharacter.charAt(giKeyUpEventCounter + 1)
-  );
+  const eCharacter = document.getElementById("charactersContainer");
 
   // Aktuelle Position
   const iPropertyLeft = parseInt(window
     .getComputedStyle(eCharacter)
     .getPropertyValue("left"));
 
-  // Letter Abstände beachten
-  const iLetterSpacing =
-    parseInt(
-      window.getComputedStyle(eCharacter).getPropertyValue("letter-spacing")
-    ) || 0;
-
-  // Jeweils die Hälften der Zeichenbreite bestimmen
-  const iHalfCharacterWidthLeft = Math.ceil(iCharacterWidthLeft / 2);
-  const iHalfCharacterWidthRight = Math.ceil(iCharacterWidthRight / 2);
-
   // Verschieben um Hälfte des linken Zeichens
   // um Hälfte des rechten Zeichens
   // um Letter Abstände
   eCharacter.style.left =
     iPropertyLeft -
-    iHalfCharacterWidthLeft -
-    iLetterSpacing -
-    iHalfCharacterWidthRight +
+    giCharacterDivWidth +
     "px";
 }
 
@@ -47,6 +24,8 @@ function moveCharacterBlockLeft() {
 function correctKeyInput() {
   console.log("correct character");
   moveCharacterBlockLeft();
+
+  setCurrentCharacter(giKeyUpEventCounter);
 
   // In the end we need to reference the next current character
   ++giKeyUpEventCounter;
@@ -86,10 +65,12 @@ document.addEventListener("keyup", function (event) {
 
   if (ignoreKey(event)) return;
 
-  const eCharacter = document.getElementById("currentCharacter");
+  const eCharacter = document.getElementById(gsCurrentCharacterId);
   const sCharacter = eCharacter.innerHTML;
 
-  if (event.key === sCharacter.charAt(giKeyUpEventCounter)) {
+  console.log("sCharacter: " + sCharacter);
+
+  if (event.key === sCharacter) {
     correctKeyInput();
   } else {
     wrongKeyInput();
