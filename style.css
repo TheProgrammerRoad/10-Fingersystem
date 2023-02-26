@@ -33,7 +33,8 @@ body {
   align-items: center;
   top: 50vh;
   left: 50vw;
-  transform: translate(0, -40px); /*Ein bisschen nach oben verschieben, damit ungefähr die Mitte des Containers in der Mitte ist, nicht die Ecke*/
+  transform: translate(-38px, -40px); /*Ein bisschen nach oben verschieben, damit ungefähr die Mitte des Containers in der Mitte ist, nicht die Ecke*/
+                                      /*Außerdem erstes div in diesem Container in die Mitte schieben*/
   font-family: 'Century Gothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 5em;
   white-space: pre;
