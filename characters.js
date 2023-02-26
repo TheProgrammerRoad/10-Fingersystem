@@ -107,6 +107,7 @@ function insertWhiteSpace() {
  * Sets a new block of characters to be displayed on the screen
  */
 function generateCharacterBlock() {
+  giKeyUpEventCounter = 0;
   clearElements();
 
   for (iIndex = 0; arNewElements.length < giCharacterBlockSizeMax; iIndex++) {

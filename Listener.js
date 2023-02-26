@@ -18,8 +18,15 @@ function moveCharacterBlockLeft() {
 /**
  * Gets called when the user presses the right key
  */
-function correctKeyInput() {
+function correctKeyInput(sCurrentCharacter) {
   console.log("correct character");
+
+  // Wenn Enter gedrückt wurde fängt alles von vorne an
+  if (sCurrentCharacter === gsNewLineSpecialCharacter) {
+    generateCharacterBlock();
+    return;
+  }
+
   moveCharacterBlockLeft();
 
   setCurrentCharacter(giKeyUpEventCounter);
@@ -89,12 +96,8 @@ document.addEventListener("keyup", function (event) {
   const eCharacter = document.getElementById(gsCurrentCharacterId);
   const sCharacter = eCharacter.innerHTML;
 
-  sHtml = translateTextToHtml(event.key);
-  console.log("translateTextToHtml(event.key): " + sHtml);
-  console.log("sCharacter: " + sCharacter);
-
   if (isKeyAndCurrentCharacterSame(event, sCharacter)) {
-    correctKeyInput();
+    correctKeyInput(sCharacter);
   } else {
     wrongKeyInput();
   }
