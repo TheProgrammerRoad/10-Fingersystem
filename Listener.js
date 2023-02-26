@@ -5,17 +5,14 @@ function moveCharacterBlockLeft() {
   const eCharacter = document.getElementById("charactersContainer");
 
   // Aktuelle Position
-  const iPropertyLeft = parseInt(window
-    .getComputedStyle(eCharacter)
-    .getPropertyValue("left"));
+  const iPropertyLeft = parseInt(
+    window.getComputedStyle(eCharacter).getPropertyValue("left")
+  );
 
   // Verschieben um Hälfte des linken Zeichens
   // um Hälfte des rechten Zeichens
   // um Letter Abstände
-  eCharacter.style.left =
-    iPropertyLeft -
-    giCharacterDivWidth +
-    "px";
+  eCharacter.style.left = iPropertyLeft - giCharacterDivWidth + "px";
 }
 
 /**
@@ -56,6 +53,30 @@ function ignoreKey(keyEvent) {
 }
 
 /**
+ * Überprüft, ob die Eingabe in keyUpEvent gleich sCurrentCharacter ist
+ * @param {*} keyUpEvent Das KeyUpEvent
+ * @param {*} sCurrentCharacter Der Wert, den der KeyUpEvent darstellt sollte
+ * @returns true, wenn KeyUpEvent den Wert aus sCurrentCharacter darstellt, sonst false
+ */
+function isKeyAndCurrentCharacterSame(keyUpEvent, sCurrentCharacter) {
+  if (gAltGrCharacters.includes(sCurrentCharacter)) {
+    if (keyUpEvent.getModifierState("AltGraph")) {
+      if (sCurrentCharacter === "{" && keyUpEvent.key === "7") return true;
+      if (sCurrentCharacter === "}" && keyUpEvent.key === "0") return true;
+      if (sCurrentCharacter === "[" && keyUpEvent.key === "8") return true;
+      if (sCurrentCharacter === "]" && keyUpEvent.key === "9") return true;
+      if (sCurrentCharacter === "\\" && keyUpEvent.key === "ß") return true;
+      if (sCurrentCharacter === "@" && keyUpEvent.key === "q") return true;
+      if (sCurrentCharacter === "~" && keyUpEvent.key === "+") return true;
+      if (sCurrentCharacter === "|" && keyUpEvent.key === "<") return true;
+    }
+    return false;
+  }
+
+  return translateTextToHtml(keyUpEvent.key) == sCurrentCharacter;
+}
+
+/**
  * Listening if a Key gets pressed (When key goes up)
  */
 document.addEventListener("keyup", function (event) {
@@ -68,9 +89,11 @@ document.addEventListener("keyup", function (event) {
   const eCharacter = document.getElementById(gsCurrentCharacterId);
   const sCharacter = eCharacter.innerHTML;
 
+  sHtml = translateTextToHtml(event.key);
+  console.log("translateTextToHtml(event.key): " + sHtml);
   console.log("sCharacter: " + sCharacter);
 
-  if (event.key === sCharacter) {
+  if (isKeyAndCurrentCharacterSame(event, sCharacter)) {
     correctKeyInput();
   } else {
     wrongKeyInput();
