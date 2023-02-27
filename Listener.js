@@ -12,7 +12,15 @@ function moveCharacterBlockLeft() {
   // Verschieben um Hälfte des linken Zeichens
   // um Hälfte des rechten Zeichens
   // um Letter Abstände
-  eCharacter.style.left = iPropertyLeft - giCharacterDivWidth + "px";
+  /* getComputedStyle(document.documentElement).getPropertyValue('--pxCharacterWidth') */
+  eCharacter.style.left =
+    iPropertyLeft -
+    parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--pxCharacterWidth"
+      )
+    ) +
+    "px";
 }
 
 /**

@@ -5,7 +5,6 @@ const gsNewLineSpecialCharacter = "\u21B5";
 const gsWhiteSpaceSpecialCharacter = "&nbsp;";
 let giKeyUpEventCounter = 0;
 const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 'Enter' Symbol*/
-const giCharacterDivWidth = 76; /*Gleicher Wert wie in style.css*/
 let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
 const gsCurrentCharacterClass = "CurrentCharacter";
 const gsCurrentCharacterId = "currentCharacter";
