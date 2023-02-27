@@ -32,6 +32,7 @@ function getRandomCharacter() {
 function addCharacterContainer(eElement, sCharacter) {
   const eCharacterDiv = document.createElement("div");
   eCharacterDiv.innerHTML = sCharacter;
+  eCharacterDiv.style.width = giCharacterDivWidth + "px";
   eCharacterDiv.classList.add("Character");
 
   eElement.appendChild(eCharacterDiv);
@@ -103,12 +104,24 @@ function insertWhiteSpace() {
   arNewElements.push(eNewElement);
 }
 
+function moveCharactersDivToStartPosition() {
+  const eCharacters = document.getElementById("charactersContainer");
+  eCharacters.style.top = giCharactersStartTop + "vh";
+  eCharacters.style.left = giCharactersStartleft + "vw";
+  const pxHalfCharacterDivWidth = -(giCharacterDivWidth / 2) + "px";
+  eCharacters.style.transform = `translate(${pxHalfCharacterDivWidth}, ${giCharactersStartTransformY}px)`;
+}
+
 /**
  * Sets a new block of characters to be displayed on the screen
+ * Entfernt alle vorher existierenden Character Divs
+ * Setzt den KeyUpCounter auf 0
+ * Positioniert den Characters Div Container an die Startposition
  */
 function generateCharacterBlock() {
   giKeyUpEventCounter = 0;
   clearElements();
+  moveCharactersDivToStartPosition();
 
   for (iIndex = 0; arNewElements.length < giCharacterBlockSizeMax; iIndex++) {
     const eCharacters = document.getElementById("charactersContainer");

@@ -14,12 +14,7 @@ function moveCharacterBlockLeft() {
   // um Letter Abstände
   /* getComputedStyle(document.documentElement).getPropertyValue('--pxCharacterWidth') */
   eCharacter.style.left =
-    iPropertyLeft -
-    parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        "--pxCharacterWidth"
-      )
-    ) +
+    iPropertyLeft - giCharacterDivWidth +
     "px";
 }
 
