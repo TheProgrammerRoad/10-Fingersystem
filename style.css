@@ -1,5 +1,6 @@
 :root {
-  --pxCharacterWidth: 40px;
+  --iCharacterFontSize: 45px;
+  --iCurrentCharacterFontSizeDifference: 5px;
 }
 
 body {
@@ -34,7 +35,6 @@ body {
   display: flex;
   align-items: center;
   font-family: 'Roboto Mono', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 50px;
 }
 
 .Character {
@@ -42,9 +42,11 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-size: var(--iCharacterFontSize);
 }
 
 .CurrentCharacter {
-  font-size: 55px;
+  font-size: calc(var(--iCharacterFontSize) + var(--iCurrentCharacterFontSizeDifference));
   font-weight: 700;
+  color: rgb(0, 42, 230);
 }
