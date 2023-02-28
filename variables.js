@@ -8,7 +8,8 @@ const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 
 const giCharactersStartTop = 50;
 const giCharactersStartleft = 50;
 const giCharactersStartTransformY= -40;
-const giCharacterDivWidth = 32; /*Gleicher Wert wie in style.css*/
+const giCharacterDivWidth = 32; /* Für Whitespaces ist die Breite größer, siehe unten. Es muss giCharacterDivWidth % 2 === 0 gelten*/
+const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für Whitespaces. Es muss giCharacterWhiteSpaceDivWidth % 2 === 0 gelten */
 let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
 const gsCurrentCharacterClass = "CurrentCharacter";
 const gsCurrentCharacterId = "currentCharacter";

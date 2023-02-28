@@ -101,6 +101,8 @@ function insertWhiteSpace() {
     eCharacters,
     gsWhiteSpaceSpecialCharacter
   );
+
+  eNewElement.style.width = giCharacterWhiteSpaceDivWidth + "px";
   arNewElements.push(eNewElement);
 }
 

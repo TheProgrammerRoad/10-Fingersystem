@@ -3,6 +3,22 @@
  ****************************************************************************************************************************************/
 function moveCharacterBlockLeft() {
   const eCharacter = document.getElementById("charactersContainer");
+  const eCurrentCharacter = document.getElementById(gsCurrentCharacterId);
+
+
+  const isCurrentWhiteSpace = eCurrentCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
+
+  let isNextWhiteSpace = false;
+  if ((eCurrentCharacter.innerHTML !== gsNewLineSpecialCharacter) &&
+      (giKeyDownEventCounter < arNewElements.length)) {
+    eNextCharacter = arNewElements[giKeyDownEventCounter + 1];
+    isNextWhiteSpace = eNextCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
+  }
+
+  const iCurrentCharacterWidth = isCurrentWhiteSpace ? giCharacterWhiteSpaceDivWidth : giCharacterDivWidth;
+  const iNextCharacterWidth = isNextWhiteSpace ? giCharacterWhiteSpaceDivWidth : giCharacterDivWidth;
+
+  const iMovingDistance = (iCurrentCharacterWidth / 2) + (iNextCharacterWidth / 2);
 
   // Aktuelle Position
   const iPropertyLeft = parseInt(
@@ -13,7 +29,7 @@ function moveCharacterBlockLeft() {
   // um Hälfte des rechten Zeichens
   // um Letter Abstände
   eCharacter.style.left =
-    iPropertyLeft - giCharacterDivWidth +
+    iPropertyLeft - iMovingDistance +
     "px";
 }
 
