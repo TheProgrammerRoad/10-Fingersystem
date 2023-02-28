@@ -3,14 +3,16 @@
  ***************************************************************************************************************************************/
 const gsNewLineSpecialCharacter = "\u21B5";
 const gsWhiteSpaceSpecialCharacter = "&nbsp;";
-let giKeyDownEventCounter = 0;
+let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
+let giCurrentPosition = 0; /* Die aktuelle Position im Character Array. Wird auf 0 zurückgesetzt, wenn das Entersymbol korrekt eingegeben wurde*/
+let giCorrectCharacterInputCounter = 0; /* Zähler der korrekten Eingaben. Es gilt immer giCorrectCharacterInputCounter < giMaxCharacter - 1 */
+const giMaxCharacters = 100; /* Die maximale Anzahl an Characters bevor eine neue Zeit gestoppt wird*/
 const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 'Enter' Symbol*/
 const giCharactersStartTop = 50;
 const giCharactersStartleft = 50;
 const giCharactersStartTransformY= -40;
 const giCharacterDivWidth = 32; /* Für Whitespaces ist die Breite größer, siehe unten. Es muss giCharacterDivWidth % 2 === 0 gelten*/
 const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für Whitespaces. Es muss giCharacterWhiteSpaceDivWidth % 2 === 0 gelten */
-let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
 const gsCurrentCharacterClass = "CurrentCharacter";
 const gsCurrentCharacterId = "currentCharacter";
 const gCharacters = [

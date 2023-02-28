@@ -10,8 +10,8 @@ function moveCharacterBlockLeft() {
 
   let isNextWhiteSpace = false;
   if ((eCurrentCharacter.innerHTML !== gsNewLineSpecialCharacter) &&
-      (giKeyDownEventCounter < arNewElements.length)) {
-    eNextCharacter = arNewElements[giKeyDownEventCounter + 1];
+      (giCurrentPosition < arNewElements.length)) {
+    eNextCharacter = arNewElements[giCurrentPosition + 1];
     isNextWhiteSpace = eNextCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
   }
 
@@ -38,6 +38,12 @@ function moveCharacterBlockLeft() {
  */
 function correctKeyInput(sCurrentCharacter) {
   console.log("correct character");
+  if (giCorrectCharacterInputCounter === giMaxCharacters)
+  {
+    console.log("Max erreicht");
+    return;
+  }
+  ++giCorrectCharacterInputCounter;
 
   const eCharacter = document.getElementById("charactersContainer");
 
@@ -55,10 +61,10 @@ function correctKeyInput(sCurrentCharacter) {
   // Neue Transition soll beginnen
   eCharacter.classList.add('MoveToLeftTransition');
 
-  setCurrentCharacter(giKeyDownEventCounter);
+  setCurrentCharacter(giCurrentPosition);
 
   // In the end we need to reference the next current character
-  ++giKeyDownEventCounter;
+  ++giCurrentPosition;
 }
 
 /**
