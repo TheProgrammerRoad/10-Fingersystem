@@ -23,6 +23,11 @@ function moveCharacterBlockLeft() {
 function correctKeyInput(sCurrentCharacter) {
   console.log("correct character");
 
+  const eCharacter = document.getElementById("charactersContainer");
+
+  // Remove, damit letzte Transition sofort beendet wird
+  eCharacter.classList.remove('MoveToLeftTransition');
+
   // Wenn Enter gedrückt wurde fängt alles von vorne an
   if (sCurrentCharacter === gsNewLineSpecialCharacter) {
     generateCharacterBlock();
@@ -30,6 +35,9 @@ function correctKeyInput(sCurrentCharacter) {
   }
 
   moveCharacterBlockLeft();
+
+  // Neue Transition soll beginnen
+  eCharacter.classList.add('MoveToLeftTransition');
 
   setCurrentCharacter(giKeyDownEventCounter);
 

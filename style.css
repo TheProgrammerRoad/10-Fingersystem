@@ -52,5 +52,5 @@ body {
 }
 
 .MoveToLeftTransition {
-  transition: left 2s ease-out;
+  transition: left 0.15s ease-out;
 }
