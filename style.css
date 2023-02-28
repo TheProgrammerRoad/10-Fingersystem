@@ -48,5 +48,9 @@ body {
 .CurrentCharacter {
   font-size: calc(var(--iCharacterFontSize) + var(--iCurrentCharacterFontSizeDifference));
   font-weight: 700;
-  color: rgb(0, 42, 230);
+  color: lightskyblue;
+}
+
+.MoveToLeftTransition {
+  transition: left 2s ease-out;
 }

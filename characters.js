@@ -43,10 +43,10 @@ function addCharacterContainer(eElement, sCharacter) {
 /**
  * Entfernt alle Element hinterlegt in arNewElements und
  * entfernt außerdem die Elemente aus dem Dokument.
- * Setzt den Zähler giKeyUpEventCounter auf 0 zurück
+ * Setzt den Zähler giKeyDownEventCounter auf 0 zurück
  */
 function clearElements() {
-  giKeyUpEventCounter = 0;
+  giKeyDownEventCounter = 0;
 
   let eCharacters = document.getElementById("charactersContainer");
   while (eCharacters.firstChild) {
@@ -73,7 +73,7 @@ function setCurrentCharacter(iIndex = -1) {
     return;
   }
 
-  assert(iIndex === giKeyUpEventCounter, "iIndex !== giKeyUpEventCounter");
+  assert(iIndex === giKeyDownEventCounter, "iIndex !== giKeyDownEventCounter");
 
   eCurrentElement = arNewElements[iIndex];
 
@@ -119,7 +119,7 @@ function moveCharactersDivToStartPosition() {
  * Positioniert den Characters Div Container an die Startposition
  */
 function generateCharacterBlock() {
-  giKeyUpEventCounter = 0;
+  giKeyDownEventCounter = 0;
   clearElements();
   moveCharactersDivToStartPosition();
 

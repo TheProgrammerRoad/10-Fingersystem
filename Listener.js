@@ -31,10 +31,10 @@ function correctKeyInput(sCurrentCharacter) {
 
   moveCharacterBlockLeft();
 
-  setCurrentCharacter(giKeyUpEventCounter);
+  setCurrentCharacter(giKeyDownEventCounter);
 
   // In the end we need to reference the next current character
-  ++giKeyUpEventCounter;
+  ++giKeyDownEventCounter;
 }
 
 /**
@@ -62,44 +62,20 @@ function ignoreKey(keyEvent) {
 }
 
 /**
- * Überprüft, ob die Eingabe in keyUpEvent gleich sCurrentCharacter ist
- * @param {*} keyUpEvent Das KeyUpEvent
- * @param {*} sCurrentCharacter Der Wert, den der KeyUpEvent darstellt sollte
- * @returns true, wenn KeyUpEvent den Wert aus sCurrentCharacter darstellt, sonst false
- */
-function isKeyAndCurrentCharacterSame(keyUpEvent, sCurrentCharacter) {
-  if (gAltGrCharacters.includes(sCurrentCharacter)) {
-    if (keyUpEvent.getModifierState("AltGraph")) {
-      if (sCurrentCharacter === "{" && keyUpEvent.key === "7") return true;
-      if (sCurrentCharacter === "}" && keyUpEvent.key === "0") return true;
-      if (sCurrentCharacter === "[" && keyUpEvent.key === "8") return true;
-      if (sCurrentCharacter === "]" && keyUpEvent.key === "9") return true;
-      if (sCurrentCharacter === "\\" && keyUpEvent.key === "ß") return true;
-      if (sCurrentCharacter === "@" && keyUpEvent.key === "q") return true;
-      if (sCurrentCharacter === "~" && keyUpEvent.key === "+") return true;
-      if (sCurrentCharacter === "|" && keyUpEvent.key === "<") return true;
-    }
-    return false;
-  }
-
-  return translateTextToHtml(keyUpEvent.key) == sCurrentCharacter;
-}
-
-/**
  * Listening if a Key gets pressed (When key goes up)
  */
-document.addEventListener("keyup", function (event) {
-  if (event.defaultPrevented) {
+document.addEventListener("keydown", function (keyDownEvent) {
+  if (keyDownEvent.defaultPrevented) {
     return;
   }
 
-  if (ignoreKey(event)) return;
+  if (ignoreKey(keyDownEvent)) return;
 
   const eCharacter = document.getElementById(gsCurrentCharacterId);
-  const sCharacter = eCharacter.innerHTML;
+  const sCurrentCharacter = eCharacter.innerHTML;
 
-  if (isKeyAndCurrentCharacterSame(event, sCharacter)) {
-    correctKeyInput(sCharacter);
+  if (translateTextToHtml(keyDownEvent.key) == sCurrentCharacter) {
+    correctKeyInput(sCurrentCharacter);
   } else {
     wrongKeyInput();
   }

@@ -3,7 +3,7 @@
  ***************************************************************************************************************************************/
 const gsNewLineSpecialCharacter = "\u21B5";
 const gsWhiteSpaceSpecialCharacter = "&nbsp;";
-let giKeyUpEventCounter = 0;
+let giKeyDownEventCounter = 0;
 const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 'Enter' Symbol*/
 const giCharactersStartTop = 50;
 const giCharactersStartleft = 50;
