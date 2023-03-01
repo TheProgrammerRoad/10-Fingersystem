@@ -48,7 +48,7 @@ function addCharacterContainer(eElement, sCharacter) {
 function clearElements() {
   giCurrentPosition = 0;
 
-  let eCharacters = document.getElementById("charactersContainer");
+  let eCharacters = document.getElementById(gsIDCharactersContainer);
   while (eCharacters.firstChild) {
     eCharacters.removeChild(eCharacters.firstChild);
   }
@@ -68,8 +68,8 @@ function setCurrentCharacter(iIndex = -1) {
 
   if (iIndex === -1) {
     eCurrentElement = arNewElements[0];
-    eCurrentElement.classList.add(gsCurrentCharacterClass);
-    eCurrentElement.id = gsCurrentCharacterId;
+    eCurrentElement.classList.add(gsCLASSCurrentCharacter);
+    eCurrentElement.id = gsIDCurrentCharacter;
     return;
   }
 
@@ -78,25 +78,25 @@ function setCurrentCharacter(iIndex = -1) {
   eCurrentElement = arNewElements[iIndex];
 
   assert(
-    eCurrentElement.id === gsCurrentCharacterId,
-    "eCurrentElement.id !== " + gsCurrentCharacterId
+    eCurrentElement.id === gsIDCurrentCharacter,
+    "eCurrentElement.id !== " + gsIDCurrentCharacter
   );
 
   eCurrentElement.id = "";
-  eCurrentElement.classList.remove(gsCurrentCharacterClass);
+  eCurrentElement.classList.remove(gsCLASSCurrentCharacter);
 
   if (iIndex === arNewElements.length - 1) return;
 
   eNewCurrentElement = arNewElements[iIndex + 1];
-  eNewCurrentElement.classList.add(gsCurrentCharacterClass);
-  eNewCurrentElement.id = gsCurrentCharacterId;
+  eNewCurrentElement.classList.add(gsCLASSCurrentCharacter);
+  eNewCurrentElement.id = gsIDCurrentCharacter;
 }
 
 /**
  * Fügt dem CharacterContainer ein div hinzu, das ein whitespace enthält
  */
 function insertWhiteSpace() {
-  const eCharacters = document.getElementById("charactersContainer");
+  const eCharacters = document.getElementById(gsIDCharactersContainer);
   eNewElement = addCharacterContainer(
     eCharacters,
     gsWhiteSpaceSpecialCharacter
@@ -107,7 +107,7 @@ function insertWhiteSpace() {
 }
 
 function moveCharactersDivToStartPosition() {
-  const eCharacters = document.getElementById("charactersContainer");
+  const eCharacters = document.getElementById(gsIDCharactersContainer);
   eCharacters.style.top = giCharactersStartTop + "vh";
   eCharacters.style.left = giCharactersStartleft + "vw";
   const pxHalfCharacterDivWidth = -(giCharacterDivWidth / 2) + "px";
@@ -154,7 +154,7 @@ function generateCharacterBlock() {
       continue;
     }
 
-    const eCharacters = document.getElementById("charactersContainer");
+    const eCharacters = document.getElementById(gsIDCharactersContainer);
     arNewElements.push(addCharacterContainer(eCharacters, sRandomCharacter));
     ++iCharactersBeforeWhiteSpaceCounter;
 

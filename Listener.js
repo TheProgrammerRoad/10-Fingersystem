@@ -2,8 +2,8 @@
  * Listener for a key press
  ****************************************************************************************************************************************/
 function moveCharacterBlockLeft() {
-  const eCharacter = document.getElementById("charactersContainer");
-  const eCurrentCharacter = document.getElementById(gsCurrentCharacterId);
+  const eCharacter = document.getElementById(gsIDCharactersContainer);
+  const eCurrentCharacter = document.getElementById(gsIDCurrentCharacter);
 
   const isCurrentWhiteSpace =
     eCurrentCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
@@ -69,7 +69,7 @@ function correctKeyInput(sCurrentCharacter) {
     return;
   }
 
-  const eCharacter = document.getElementById("charactersContainer");
+  const eCharacter = document.getElementById(gsIDCharactersContainer);
 
   // Remove, damit letzte Transition sofort beendet wird
   eCharacter.classList.remove("MoveToLeftTransition");
@@ -123,7 +123,7 @@ document.addEventListener("keydown", function (keyDownEvent) {
 
   if (ignoreKey(keyDownEvent)) return;
 
-  const eCharacter = document.getElementById(gsCurrentCharacterId);
+  const eCharacter = document.getElementById(gsIDCurrentCharacter);
   const sCurrentCharacter = eCharacter.innerHTML;
 
   if (translateTextToHtml(keyDownEvent.key) == sCurrentCharacter) {

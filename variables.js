@@ -13,8 +13,10 @@ const giCharactersStartleft = 50;
 const giCharactersStartTransformY= -40;
 const giCharacterDivWidth = 32; /* Für Whitespaces ist die Breite größer, siehe unten. Es muss giCharacterDivWidth % 2 === 0 gelten*/
 const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für Whitespaces. Es muss giCharacterWhiteSpaceDivWidth % 2 === 0 gelten */
-const gsCurrentCharacterClass = "CurrentCharacter";
-const gsCurrentCharacterId = "currentCharacter";
+const gsCLASSCurrentCharacter = "CurrentCharacter";
+const gsCLASSCharactersContainer = "CharactersContainer";
+const gsIDCurrentCharacter = "currentCharacter";
+const gsIDCharactersContainer = "charactersContainer";
 const gCharacters = [
   "a",
   "b",
