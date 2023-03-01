@@ -5,20 +5,27 @@ function moveCharacterBlockLeft() {
   const eCharacter = document.getElementById("charactersContainer");
   const eCurrentCharacter = document.getElementById(gsCurrentCharacterId);
 
-
-  const isCurrentWhiteSpace = eCurrentCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
+  const isCurrentWhiteSpace =
+    eCurrentCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
 
   let isNextWhiteSpace = false;
-  if ((eCurrentCharacter.innerHTML !== gsNewLineSpecialCharacter) &&
-      (giCurrentPosition < arNewElements.length)) {
+  if (
+    eCurrentCharacter.innerHTML !== gsNewLineSpecialCharacter &&
+    giCurrentPosition < arNewElements.length
+  ) {
     eNextCharacter = arNewElements[giCurrentPosition + 1];
-    isNextWhiteSpace = eNextCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
+    isNextWhiteSpace =
+      eNextCharacter.innerHTML === gsWhiteSpaceSpecialCharacter;
   }
 
-  const iCurrentCharacterWidth = isCurrentWhiteSpace ? giCharacterWhiteSpaceDivWidth : giCharacterDivWidth;
-  const iNextCharacterWidth = isNextWhiteSpace ? giCharacterWhiteSpaceDivWidth : giCharacterDivWidth;
+  const iCurrentCharacterWidth = isCurrentWhiteSpace
+    ? giCharacterWhiteSpaceDivWidth
+    : giCharacterDivWidth;
+  const iNextCharacterWidth = isNextWhiteSpace
+    ? giCharacterWhiteSpaceDivWidth
+    : giCharacterDivWidth;
 
-  const iMovingDistance = (iCurrentCharacterWidth / 2) + (iNextCharacterWidth / 2);
+  const iMovingDistance = iCurrentCharacterWidth / 2 + iNextCharacterWidth / 2;
 
   // Aktuelle Position
   const iPropertyLeft = parseInt(
@@ -28,27 +35,44 @@ function moveCharacterBlockLeft() {
   // Verschieben um Hälfte des linken Zeichens
   // um Hälfte des rechten Zeichens
   // um Letter Abstände
-  eCharacter.style.left =
-    iPropertyLeft - iMovingDistance +
-    "px";
+  eCharacter.style.left = iPropertyLeft - iMovingDistance + "px";
+}
+
+/**
+ * Beendet den aktuellen Lauf.
+ * Sollte nur aufgerufen werden, wenn alle Zeichen korrekt eingegeben worden sind
+ */
+function teminateCurrentRun() {
+  assert(
+    giCorrectCharacterInputCounter === giMaxCharacters,
+    "Das Spiel wurde zu früh abgebrochen"
+  );
+
+  console.log("Beendet");
 }
 
 /**
  * Gets called when the user presses the right key
  */
 function correctKeyInput(sCurrentCharacter) {
-  console.log("correct character");
-  if (giCorrectCharacterInputCounter === giMaxCharacters)
-  {
-    console.log("Max erreicht");
+  console.log(
+    "giCorrectCharacterInputCounter: " + giCorrectCharacterInputCounter
+  );
+  assert(
+    giCorrectCharacterInputCounter < giMaxCharacters,
+    "Mehr Eingabeninput als möglich"
+  );
+  ++giCorrectCharacterInputCounter;
+
+  if (giCorrectCharacterInputCounter === giMaxCharacters) {
+    teminateCurrentRun();
     return;
   }
-  ++giCorrectCharacterInputCounter;
 
   const eCharacter = document.getElementById("charactersContainer");
 
   // Remove, damit letzte Transition sofort beendet wird
-  eCharacter.classList.remove('MoveToLeftTransition');
+  eCharacter.classList.remove("MoveToLeftTransition");
 
   // Wenn Enter gedrückt wurde fängt alles von vorne an
   if (sCurrentCharacter === gsNewLineSpecialCharacter) {
@@ -59,7 +83,7 @@ function correctKeyInput(sCurrentCharacter) {
   moveCharacterBlockLeft();
 
   // Neue Transition soll beginnen
-  eCharacter.classList.add('MoveToLeftTransition');
+  eCharacter.classList.add("MoveToLeftTransition");
 
   setCurrentCharacter(giCurrentPosition);
 
@@ -70,9 +94,7 @@ function correctKeyInput(sCurrentCharacter) {
 /**
  * Gets called when the user presses the wrong key
  */
-function wrongKeyInput() {
-  console.log("wrong character");
-}
+function wrongKeyInput() {}
 
 /**
  *

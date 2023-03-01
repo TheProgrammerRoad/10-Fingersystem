@@ -115,6 +115,18 @@ function moveCharactersDivToStartPosition() {
 }
 
 /**
+ * Hilfsfunktion
+ * Bestimmt einen RandomCharacter oder gibt gsNewLineSpecialCharacter zurück
+ * @returns Gibt einen Character zurück
+ */
+function computeNewCharacter() {
+  // Das letzte Symbol soll immer 'Enter' sein
+  return arNewElements.length === giCharacterBlockSizeMax - 1
+    ? gsNewLineSpecialCharacter
+    : getRandomCharacter();
+}
+
+/**
  * Sets a new block of characters to be displayed on the screen
  * Entfernt alle vorher existierenden Character Divs
  * Setzt den KeyUpCounter auf 0
@@ -125,27 +137,26 @@ function generateCharacterBlock() {
   clearElements();
   moveCharactersDivToStartPosition();
 
+  let iCharactersBeforeWhiteSpaceCounter = 0;
   for (iIndex = 0; arNewElements.length < giCharacterBlockSizeMax; iIndex++) {
-    const eCharacters = document.getElementById("charactersContainer");
-
-    // Das letzte Symbol soll immer 'Enter' sein
-    const sRandomCharacter =
-        arNewElements.length === giCharacterBlockSizeMax - 1
-        ? gsNewLineSpecialCharacter
-        : getRandomCharacter();
+    if (giCorrectCharacterInputCounter + arNewElements.length >= giMaxCharacters) break;
+    const sRandomCharacter = computeNewCharacter();
 
     // Nach jedem dritten Zeichen ein Whitespace einfügen
     // Nur, wenn das aktuelle Zeichen keine 'Enter' Symbol ist
     if (
       sRandomCharacter !== gsNewLineSpecialCharacter &&
-      iIndex % 3 === 0 &&
-      iIndex !== 0
+      iCharactersBeforeWhiteSpaceCounter % 3 === 0 &&
+      iCharactersBeforeWhiteSpaceCounter !== 0
     ) {
       insertWhiteSpace();
-      if (arNewElements.length >= giCharacterBlockSizeMax) break;
+      iCharactersBeforeWhiteSpaceCounter = 0;
+      continue;
     }
 
+    const eCharacters = document.getElementById("charactersContainer");
     arNewElements.push(addCharacterContainer(eCharacters, sRandomCharacter));
+    ++iCharactersBeforeWhiteSpaceCounter;
 
     // Bei 'Enter' Symbol ist Charcter Block vollständig
     if (sRandomCharacter === gsNewLineSpecialCharacter) break;
