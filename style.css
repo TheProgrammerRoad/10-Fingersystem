@@ -34,7 +34,7 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
-  font-family: 'Roboto Mono', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .Character {
