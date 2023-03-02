@@ -10,13 +10,14 @@ const giMaxCharacters = 100; /* Die maximale Anzahl an Characters bevor eine neu
 const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 'Enter' Symbol*/
 const giCharactersStartTop = 50;
 const giCharactersStartleft = 50;
-const giCharactersStartTransformY= -40;
+const giCharactersStartTransformY = -40;
 const giCharacterDivWidth = 32; /* Für Whitespaces ist die Breite größer, siehe unten. Es muss giCharacterDivWidth % 2 === 0 gelten*/
 const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für Whitespaces. Es muss giCharacterWhiteSpaceDivWidth % 2 === 0 gelten */
 const gsCLASSCurrentCharacter = "CurrentCharacter";
 const gsCLASSCharactersContainer = "CharactersContainer";
 const gsIDCurrentCharacter = "currentCharacter";
 const gsIDCharactersContainer = "charactersContainer";
+const gsIDTerminateDiv = "terminateDiv";
 const gCharacters = [
   "a",
   "b",

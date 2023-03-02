@@ -118,7 +118,25 @@ function moveCharactersDivToStartPosition() {
  * Setzt den Characters Div auf die Endposition
  */
 function moveCharactersDivToEndPosition() {
+  const eCharacters = document.getElementById(gsIDCharactersContainer);
+  eCharacters.style.top = giCharactersStartTop + "vh";
+  eCharacters.style.left = giCharactersStartleft + "vw";
+  // reset any previously set transformations
+  eCharacters.style.transform = "";
 
+  const eTerminateDiv = document.getElementById(gsIDTerminateDiv);
+  assert(eTerminateDiv, "Try to delete TerminateDiv failed");
+  if (eTerminateDiv === null)
+    return;
+
+  const iTerminateWidth = parseInt(
+    window.getComputedStyle(eTerminateDiv).getPropertyValue("width")
+  );
+
+  console.log("iTerminateWidth: " + iTerminateWidth);
+
+  const pxHalfWidth = -(iTerminateWidth / 2) + "px";
+  eCharacters.style.transform = `translate(${pxHalfWidth}, ${giCharactersStartTransformY}px)`;
 }
 
 /**
@@ -143,6 +161,18 @@ function resetToStartingPosition() {
 }
 
 /**
+ * Fügt den "Beendet" Div Container hinzu
+ */
+function addTerminateDiv() {
+  const eCharacters = document.getElementById(gsIDCharactersContainer);
+  const eTerminateDiv = document.createElement("div");
+  eTerminateDiv.classList.add("TerminateContainer");
+  eTerminateDiv.setAttribute("id", gsIDTerminateDiv);
+  eTerminateDiv.innerHTML = "Beendet";
+  eCharacters.appendChild(eTerminateDiv);
+}
+
+/**
  * Beendet den aktuellen Lauf.
  * Sollte nur aufgerufen werden, wenn alle Zeichen korrekt eingegeben worden sind
  */
@@ -152,7 +182,9 @@ function terminate() {
     "Das Spiel wurde zu früh abgebrochen"
   );
 
-  resetToStartingPosition();
+  giCurrentPosition = 0;
+  clearElements();
+  addTerminateDiv();
   moveCharactersDivToEndPosition();
 
   console.log("Beendet");
