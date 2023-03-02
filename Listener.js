@@ -52,7 +52,7 @@ function correctKeyInput(sCurrentCharacter) {
   ++giCorrectCharacterInputCounter;
 
   if (giCorrectCharacterInputCounter === giMaxCharacters) {
-    terminate();
+    terminate(giCorrectCharacterInputCounter === giMaxCharacters);
     return;
   }
 
@@ -81,7 +81,10 @@ function correctKeyInput(sCurrentCharacter) {
 /**
  * Gets called when the user presses the wrong key
  */
-function wrongKeyInput() { }
+function wrongKeyInput() {
+  assert(giCorrectCharacterInputCounter < giMaxCharacters, "wrongKeyInput Fehler");
+  terminate(giCorrectCharacterInputCounter === giMaxCharacters /*Dieser Ausdruck wird immer false zurück geben, was auch richtig sein soll*/);
+}
 
 /**
  *
@@ -123,7 +126,7 @@ document.addEventListener("keydown", function (keyDownEvent) {
   const eCharacter = document.getElementById(gsIDCurrentCharacter);
   const sCurrentCharacter = eCharacter.innerHTML;
 
-  if (translateTextToHtml(keyDownEvent.key) == sCurrentCharacter) {
+  if (translateTextToHtml(keyDownEvent.key) === sCurrentCharacter) {
     correctKeyInput(sCurrentCharacter);
   } else {
     wrongKeyInput();

@@ -47,8 +47,12 @@ body {
   transition: left 0.15s ease-out;
 }
 
-.TerminateContainer {
+.FinishedWithoutErrorContainer {
   color: lightskyblue;
+}
+
+.FinishedWithErrorContainer {
+  color: deeppink;
 }
 
 /********************************************************************************/

@@ -18,7 +18,7 @@ let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
 
 /***********************************************************************************************/
 // Characters Numbers
-const giMaxCharacters = 2; /* Die maximale Anzahl an Characters bevor eine neue Zeit gestoppt wird*/
+const giMaxCharacters = 120; /* Die maximale Anzahl an Characters bevor eine neue Zeit gestoppt wird*/
 const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 'Enter' Symbol*/
 
 /***********************************************************************************************/

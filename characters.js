@@ -154,12 +154,19 @@ function computeNewCharacter() {
 /**
  * Fügt den "Beendet" Div Container hinzu
  */
-function addTerminateDiv() {
+function addTerminateDiv(bGameFinished) {
   const eCharacters = document.getElementById(gsIDCharactersContainer);
   const eTerminateDiv = document.createElement("div");
-  eTerminateDiv.classList.add("TerminateContainer");
   eTerminateDiv.setAttribute("id", gsIDTerminateDiv);
-  eTerminateDiv.innerHTML = "Beendet";
+
+  if (Boolean(bGameFinished)) {
+    eTerminateDiv.classList.add("FinishedWithoutErrorContainer");
+    eTerminateDiv.innerHTML = "Beendet";
+  }
+  else {
+    eTerminateDiv.classList.add("FinishedWithErrorContainer");
+    eTerminateDiv.innerHTML = "Failed";
+  }
   eCharacters.appendChild(eTerminateDiv);
 }
 
@@ -167,17 +174,12 @@ function addTerminateDiv() {
  * Beendet den aktuellen Lauf.
  * Sollte nur aufgerufen werden, wenn alle Zeichen korrekt eingegeben worden sind
  */
-function terminate() {
-  assert(
-    giCorrectCharacterInputCounter === giMaxCharacters,
-    "Das Spiel wurde zu früh abgebrochen"
-  );
-
+function terminate(bGameFinished) {
   stopTimer();
 
   giCurrentPosition = 0;
   clearElements();
-  addTerminateDiv();
+  addTerminateDiv(bGameFinished);
   moveCharactersDivToEndPosition();
 
   gbGameFinished = true;
