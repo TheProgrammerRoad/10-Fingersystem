@@ -182,6 +182,8 @@ function terminate() {
     "Das Spiel wurde zu früh abgebrochen"
   );
 
+  stopTimer();
+
   giCurrentPosition = 0;
   clearElements();
   addTerminateDiv();

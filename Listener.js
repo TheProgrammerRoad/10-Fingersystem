@@ -110,6 +110,9 @@ document.addEventListener("keydown", function (keyDownEvent) {
 
   if (ignoreKey(keyDownEvent)) return;
 
+  if (giCorrectCharacterInputCounter === 0)
+    startTimer();
+
   const eCharacter = document.getElementById(gsIDCurrentCharacter);
   const sCurrentCharacter = eCharacter.innerHTML;
 

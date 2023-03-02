@@ -12,13 +12,18 @@
   <body>
     <div class="StaticContainer">
       <img class="IndicatorArrow" src="indicator.svg" />
-      <div class="Timer">0:00:00 min</div>
+      <div class="Timer">
+        <span id="minutes">00</span>min 
+        <span id="seconds">00</span>sek 
+        <span id="milliseconds">000</span>ms 
+      </div>
     </div>
     <div class="CharactersContainer" id="charactersContainer"></div>
 
     <script src="assert.js"></script>
     <script src="htmlTool.js"></script>
     <script src="variables.js"></script>
+    <script src="timer.js"></script>
     <script src="characters.js"></script>
     <script src="Listener.js"></script>
     <script src="main.js"></script>
