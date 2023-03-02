@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 /***************************************************************************************************/
@@ -22,16 +23,10 @@ body {
   height: 50px;
 }
 
-.Timer {
-  margin-top: 80px;
-  font-size: 2em;
-}
-
 .CharactersContainer {
   position: absolute;
   display: flex;
   align-items: center;
-  font-family: 'Trebuchet MS', sans-serif;
   font-size: var(--iCharacterFontSize);
 }
 
@@ -54,5 +49,28 @@ body {
 
 .TerminateContainer {
   color: lightskyblue;
+}
+
+/********************************************************************************/
+/*Timer*/
+
+.Timer {
+  margin-top: 80px;
+  font-size: 2em;
+  width: 400px;
+  text-align: center;
+}
+
+.Minutes, .Seconds, .Milliseconds {
+  color: rgb(102, 102, 102);
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.MinutesLabel, .SecondsLabel, .MillisecondsLabel {
+  color: rgb(235, 235, 235);
+  font-size: large;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
