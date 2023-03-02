@@ -14,7 +14,7 @@
  */
 
 function main() {
-  generateCharacterBlock();
+  restartGame();
 }
 
 main();

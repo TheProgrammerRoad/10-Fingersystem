@@ -1,6 +1,9 @@
 let timerId = null;
 let startTime = 0;
 
+/**
+ * Startet den Timer bei 0
+ */
 function startTimer() {
   const minutesDisplay = document.getElementById("minutes");
   const secondsDisplay = document.getElementById("seconds");
@@ -26,10 +29,25 @@ function startTimer() {
   }, 1);
 }
 
+/**
+ * Stoppt den aktuell laufenden Timer
+ */
 function stopTimer() {
   // Clear the interval timer
   clearInterval(timerId);
+}
 
-  // Reset the start time
-  startTime = 0;
+/**
+ * Setzt den Timer zurück und zeigt wieder 00min 00sek und 000ms an
+ */
+function resetTimer() {
+  startTime = Date.now();
+
+  const minutesDisplay = document.getElementById("minutes");
+  const secondsDisplay = document.getElementById("seconds");
+  const millisecondsDisplay = document.getElementById("milliseconds");
+
+  minutesDisplay.innerHTML = "00";
+  secondsDisplay.innerHTML = "00";
+  millisecondsDisplay.innerHTML = "000";
 }

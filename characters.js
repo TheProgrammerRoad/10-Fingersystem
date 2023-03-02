@@ -152,15 +152,6 @@ function computeNewCharacter() {
 }
 
 /**
- * Setzt das Spiel auf die Startposition zurück
- */
-function resetToStartingPosition() {
-  giCurrentPosition = 0;
-  clearElements();
-  moveCharactersDivToStartPosition();
-}
-
-/**
  * Fügt den "Beendet" Div Container hinzu
  */
 function addTerminateDiv() {
@@ -189,6 +180,8 @@ function terminate() {
   addTerminateDiv();
   moveCharactersDivToEndPosition();
 
+  gbGameFinished = true;
+
   console.log("Beendet");
 }
 
@@ -199,7 +192,9 @@ function terminate() {
  * Positioniert den Characters Div Container an die Startposition
  */
 function generateCharacterBlock() {
-  resetToStartingPosition();
+  giCurrentPosition = 0;
+  clearElements();
+  moveCharactersDivToStartPosition();
 
   let iCharactersBeforeWhiteSpaceCounter = 0;
   for (iIndex = 0; arNewElements.length < giCharacterBlockSizeMax; iIndex++) {
@@ -229,4 +224,14 @@ function generateCharacterBlock() {
   }
 
   setCurrentCharacter();
+}
+
+/**
+ * Setzt das Spiel auf den Startzustand zurück
+ */
+function restartGame() {
+  gbGameFinished = false;
+  giCorrectCharacterInputCounter = 0;
+  resetTimer();
+  generateCharacterBlock();
 }

@@ -7,6 +7,13 @@
 const gsNewLineSpecialCharacter = "\u21B5";
 const gsWhiteSpaceSpecialCharacter = "&nbsp;";
 
+/***********************************************************************************************/
+// Global Game
+let gbGameFinished = false;
+let giCorrectCharacterInputCounter = 0; /* Zähler der korrekten Eingaben. Es gilt immer giCorrectCharacterInputCounter < giMaxCharacter - 1 */
+
+/***********************************************************************************************/
+// Array of Characters
 let arNewElements = []; /* Hier werden die neuen Element zwischen gespeichert*/
 
 /***********************************************************************************************/
@@ -17,7 +24,6 @@ const giCharacterBlockSizeMax = 50; /*Maximale Anzahl an Zeichen bis zum ersten 
 /***********************************************************************************************/
 // Current Character Position in Array
 let giCurrentPosition = 0; /* Die aktuelle Position im Character Array. Wird auf 0 zurückgesetzt, wenn das Entersymbol korrekt eingegeben wurde*/
-let giCorrectCharacterInputCounter = 0; /* Zähler der korrekten Eingaben. Es gilt immer giCorrectCharacterInputCounter < giMaxCharacter - 1 */
 
 /***********************************************************************************************/
 // Layout-Position Values

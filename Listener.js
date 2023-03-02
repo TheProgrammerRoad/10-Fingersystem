@@ -110,6 +110,13 @@ document.addEventListener("keydown", function (keyDownEvent) {
 
   if (ignoreKey(keyDownEvent)) return;
 
+  // Soll das Spiel neu begonnen werden? Geht nur, wenn Spiel beendet wurde
+  if ((translateTextToHtml(keyDownEvent.key) === gsNewLineSpecialCharacter) &&
+    (Boolean(gbGameFinished))) {
+    restartGame();
+    return;
+  }
+
   if (giCorrectCharacterInputCounter === 0)
     startTimer();
 
