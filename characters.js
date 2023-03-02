@@ -115,6 +115,13 @@ function moveCharactersDivToStartPosition() {
 }
 
 /**
+ * Setzt den Characters Div auf die Endposition
+ */
+function moveCharactersDivToEndPosition() {
+
+}
+
+/**
  * Hilfsfunktion
  * Bestimmt einen RandomCharacter oder gibt gsNewLineSpecialCharacter zurück
  * @returns Gibt einen Character zurück
@@ -127,19 +134,44 @@ function computeNewCharacter() {
 }
 
 /**
+ * Setzt das Spiel auf die Startposition zurück
+ */
+function resetToStartingPosition() {
+  giCurrentPosition = 0;
+  clearElements();
+  moveCharactersDivToStartPosition();
+}
+
+/**
+ * Beendet den aktuellen Lauf.
+ * Sollte nur aufgerufen werden, wenn alle Zeichen korrekt eingegeben worden sind
+ */
+function terminate() {
+  assert(
+    giCorrectCharacterInputCounter === giMaxCharacters,
+    "Das Spiel wurde zu früh abgebrochen"
+  );
+
+  resetToStartingPosition();
+  moveCharactersDivToEndPosition();
+
+  console.log("Beendet");
+}
+
+/**
  * Sets a new block of characters to be displayed on the screen
  * Entfernt alle vorher existierenden Character Divs
  * Setzt den KeyUpCounter auf 0
  * Positioniert den Characters Div Container an die Startposition
  */
 function generateCharacterBlock() {
-  giCurrentPosition = 0;
-  clearElements();
-  moveCharactersDivToStartPosition();
+  resetToStartingPosition();
 
   let iCharactersBeforeWhiteSpaceCounter = 0;
   for (iIndex = 0; arNewElements.length < giCharacterBlockSizeMax; iIndex++) {
-    if (giCorrectCharacterInputCounter + arNewElements.length >= giMaxCharacters) break;
+    if (giCorrectCharacterInputCounter + arNewElements.length >= giMaxCharacters)
+      break;
+
     const sRandomCharacter = computeNewCharacter();
 
     // Nach jedem dritten Zeichen ein Whitespace einfügen

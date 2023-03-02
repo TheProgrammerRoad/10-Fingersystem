@@ -39,19 +39,6 @@ function moveCharacterBlockLeft() {
 }
 
 /**
- * Beendet den aktuellen Lauf.
- * Sollte nur aufgerufen werden, wenn alle Zeichen korrekt eingegeben worden sind
- */
-function teminateCurrentRun() {
-  assert(
-    giCorrectCharacterInputCounter === giMaxCharacters,
-    "Das Spiel wurde zu früh abgebrochen"
-  );
-
-  console.log("Beendet");
-}
-
-/**
  * Gets called when the user presses the right key
  */
 function correctKeyInput(sCurrentCharacter) {
@@ -65,7 +52,7 @@ function correctKeyInput(sCurrentCharacter) {
   ++giCorrectCharacterInputCounter;
 
   if (giCorrectCharacterInputCounter === giMaxCharacters) {
-    teminateCurrentRun();
+    terminate();
     return;
   }
 
@@ -94,7 +81,7 @@ function correctKeyInput(sCurrentCharacter) {
 /**
  * Gets called when the user presses the wrong key
  */
-function wrongKeyInput() {}
+function wrongKeyInput() { }
 
 /**
  *
