@@ -1,7 +1,4 @@
-:root {
-  --iCharacterFontSize: 45px;
-  --iCurrentCharacterFontSizeDifference: 5px;
-}
+ @import url('variables.css');
 
 body {
   margin: 0;

@@ -6,9 +6,9 @@ let startTime = 0;
  */
 function startTimer() {
   gbTimerRunning = true;
-  const minutesDisplay = document.getElementById("minutes");
-  const secondsDisplay = document.getElementById("seconds");
-  const millisecondsDisplay = document.getElementById("milliseconds");
+  const eMinutesDisplay = document.getElementById("minutes");
+  const eSecondsDisplay = document.getElementById("seconds");
+  const eMillisecondsDisplay = document.getElementById("milliseconds");
 
   // Set Start Time to 0
   startTime = Date.now();
@@ -24,9 +24,9 @@ function startTimer() {
     const milliseconds = elapsedTime % 1000;
 
     // Display the minutes, seconds, and milliseconds
-    minutesDisplay.textContent = minutes.toString().padStart(2, "0");
-    secondsDisplay.textContent = seconds.toString().padStart(2, "0");
-    millisecondsDisplay.textContent = milliseconds.toString().padStart(3, "0");
+    eMinutesDisplay.textContent = minutes.toString().padStart(2, "0");
+    eSecondsDisplay.textContent = seconds.toString().padStart(2, "0");
+    eMillisecondsDisplay.textContent = milliseconds.toString().padStart(3, "0");
   }, 1);
 }
 
@@ -46,11 +46,11 @@ function stopTimer() {
 function resetTimer() {
   startTime = Date.now();
 
-  const minutesDisplay = document.getElementById("minutes");
-  const secondsDisplay = document.getElementById("seconds");
-  const millisecondsDisplay = document.getElementById("milliseconds");
+  const eMinutesDisplay = document.getElementById("minutes");
+  const eSecondsDisplay = document.getElementById("seconds");
+  const eMillisecondsDisplay = document.getElementById("milliseconds");
 
-  minutesDisplay.innerHTML = "00";
-  secondsDisplay.innerHTML = "00";
-  millisecondsDisplay.innerHTML = "000";
+  eMinutesDisplay.innerHTML = "00";
+  eSecondsDisplay.innerHTML = "00";
+  eMillisecondsDisplay.innerHTML = "000";
 }
