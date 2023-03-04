@@ -56,6 +56,12 @@ body {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   fill: var(--cThinGray);
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.SettingsIcon.clicked {
+  transform: rotate(90deg);
 }
 
 .Settings {
@@ -65,10 +71,12 @@ body {
   width: 50%;
   height: 50%;
   border: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
-  background-color: var(--cThinGray);
+  background-color: var(--cVeryThinGray);
 
-  transition: top 3s ease-out;
+  transition: top 0.2s ease-out;
 }
 
 

@@ -34,8 +34,14 @@ const giCharacterDivWidth = 32; /* Für Whitespaces ist die Breite größer, sie
 const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für Whitespaces. Es muss giCharacterWhiteSpaceDivWidth % 2 === 0 gelten */
 
 /***********************************************************************************************/
-// Timer
+// Timer Time
 let gbTimerRunning = false;
+
+// Mouse Moves
+let gMouseMoveRimer = null;
+
+/***********************************************************************************************/
+// Settings
 
 /***********************************************************************************************/
 // Class and ID Names that are used often

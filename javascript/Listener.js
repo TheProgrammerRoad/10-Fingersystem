@@ -140,6 +140,7 @@ document.addEventListener("keydown", function (keyDownEvent) {
 /**
  * Listener if mouse is currently moved
  */
+
 document.addEventListener('mousemove', function () {
 
   // Wenn das Spiel gerade läuft, soll das Settings Icon nicht angezeigt werden
@@ -148,11 +149,10 @@ document.addEventListener('mousemove', function () {
   }
 
   const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
-  let timer;
 
   eSettingsIcon.style.opacity = 1;
-  clearTimeout(timer);
-  timer = setTimeout(function () {
+  clearTimeout(gMouseMoveRimer);
+  gMouseMoveRimer = setTimeout(function () {
     eSettingsIcon.style.opacity = 0;
   }, 5000);
 });
@@ -164,11 +164,13 @@ document.addEventListener('mousemove', function () {
 /******************************************************************************************************/
 /* Click on Settings Icon */
 /******************************************************************************************************/
+document.getElementById(gsIDSettingsIcon).addEventListener('click', function () {
 
-const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
-
-eSettingsIcon.addEventListener('click', function () {
+  // Settings reinsliden lassen
   const eSettings = document.getElementById(gsIDSettings);
+  eSettings.style.top = this.classList.contains('clicked') ? -50 + "%" : '0';
 
-  eSettings.style.top = '0';
+  // Icon togglen. 
+  // Am Ende togglen
+  this.classList.toggle('clicked');
 });
