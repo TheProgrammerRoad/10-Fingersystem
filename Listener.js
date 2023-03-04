@@ -137,6 +137,12 @@ document.addEventListener("keydown", function (keyDownEvent) {
  * Listener if mouse is currently moved
  */
 document.addEventListener('mousemove', function () {
+
+  // Wenn das Spiel gerade läuft, soll das Settings Icon nicht angezeigt werden
+  if (gbTimerRunning) {
+    return;
+  }
+
   const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
   let timer;
 

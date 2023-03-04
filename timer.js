@@ -5,6 +5,7 @@ let startTime = 0;
  * Startet den Timer bei 0
  */
 function startTimer() {
+  gbTimerRunning = true;
   const minutesDisplay = document.getElementById("minutes");
   const secondsDisplay = document.getElementById("seconds");
   const millisecondsDisplay = document.getElementById("milliseconds");
@@ -35,6 +36,8 @@ function startTimer() {
 function stopTimer() {
   // Clear the interval timer
   clearInterval(timerId);
+
+  gbTimerRunning = false;
 }
 
 /**
