@@ -31,14 +31,14 @@ body {
 }
 
 .Minutes, .Seconds, .Milliseconds {
-  color: var(--cTimerTimes);
+  color: var(--cDarkGray);
   font-size: x-large;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
 .MinutesLabel, .SecondsLabel, .MillisecondsLabel {
-  color: var(--cTimerLabels);
+  color: var(--cVeryThinGray);
   font-size: large;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -55,8 +55,22 @@ body {
   background-size: cover;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  fill: var(--cSettingsIcon);
+  fill: var(--cThinGray);
 }
+
+.Settings {
+  position: fixed;
+  top: -50%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border: none;
+
+  background-color: var(--cThinGray);
+
+  transition: top 3s ease-out;
+}
+
 
 /***************************************************************************************************/
 /*Characters*/

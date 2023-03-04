@@ -1,6 +1,6 @@
-/*****************************************************************************************************************************************
- * Listener for a key press
- ****************************************************************************************************************************************/
+/******************************************************************************************************/
+/* Key Pressed */
+/******************************************************************************************************/
 function moveCharacterBlockLeft() {
   const eCharacter = document.getElementById(gsIDCharactersContainer);
   const eCurrentCharacter = document.getElementById(gsIDCurrentCharacter);
@@ -42,9 +42,6 @@ function moveCharacterBlockLeft() {
  * Gets called when the user presses the right key
  */
 function correctKeyInput(sCurrentCharacter) {
-  console.log(
-    "giCorrectCharacterInputCounter: " + giCorrectCharacterInputCounter
-  );
   assert(
     giCorrectCharacterInputCounter < giMaxCharacters,
     "Mehr Eingabeninput als möglich"
@@ -133,6 +130,13 @@ document.addEventListener("keydown", function (keyDownEvent) {
   }
 });
 
+
+
+
+
+/******************************************************************************************************/
+/* Mouse moves */
+/******************************************************************************************************/
 /**
  * Listener if mouse is currently moved
  */
@@ -151,4 +155,20 @@ document.addEventListener('mousemove', function () {
   timer = setTimeout(function () {
     eSettingsIcon.style.opacity = 0;
   }, 5000);
+});
+
+
+
+
+
+/******************************************************************************************************/
+/* Click on Settings Icon */
+/******************************************************************************************************/
+
+const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
+
+eSettingsIcon.addEventListener('click', function () {
+  const eSettings = document.getElementById(gsIDSettings);
+
+  eSettings.style.top = '0';
 });

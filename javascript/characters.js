@@ -133,8 +133,6 @@ function moveCharactersDivToEndPosition() {
     window.getComputedStyle(eTerminateDiv).getPropertyValue("width")
   );
 
-  console.log("iTerminateWidth: " + iTerminateWidth);
-
   const pxHalfWidth = -(iTerminateWidth / 2) + "px";
   eCharacters.style.transform = `translate(${pxHalfWidth}, ${giCharactersStartTransformY}px)`;
 }
@@ -183,8 +181,6 @@ function terminate(bGameFinished) {
   moveCharactersDivToEndPosition();
 
   gbGameFinished = true;
-
-  console.log("Beendet");
 }
 
 /**

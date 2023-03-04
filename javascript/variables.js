@@ -45,6 +45,7 @@ const gsIDCurrentCharacter = "currentCharacter";
 const gsIDCharactersContainer = "charactersContainer";
 const gsIDTerminateDiv = "terminateDiv";
 const gsIDSettingsIcon = "settingsIcon";
+const gsIDSettings = "settings";
 
 /***********************************************************************************************/
 // All the Characters that get displayed as Random Character

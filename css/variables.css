@@ -4,11 +4,9 @@
 
   /* Color Values*/
   --cMainBlue: lightskyblue;
-  
-  --cTimerTimes: rgb(102, 102, 102);
-  --cTimerLabels: rgb(235, 235, 235);
-
-  --cSettingsIcon: rgb(207, 207, 207);
+  --cDarkGray: rgb(102, 102, 102);
+  --cThinGray: rgb(207, 207, 207);
+  --cVeryThinGray: rgb(235, 235, 235);
 
   --cFailed: deeppink;
 
