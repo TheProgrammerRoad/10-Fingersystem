@@ -40,6 +40,7 @@ const gsCLASSCharactersContainer = "CharactersContainer";
 const gsIDCurrentCharacter = "currentCharacter";
 const gsIDCharactersContainer = "charactersContainer";
 const gsIDTerminateDiv = "terminateDiv";
+const gsIDSettingsIcon = "settingsIcon";
 
 /***********************************************************************************************/
 // All the Characters that get displayed as Random Character
@@ -48,5 +49,3 @@ const gCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
   "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
   "ß", "!", "$", "%", "&", "/", "(", ")", "=", "?", ",", ".", "-", ";", ":", "_", "#", "'", "~", "|", "@", "{",
   "}", "[", "]", "\\", "\n", "\n" /*double the propability of the new line character by adding it twice*/];
-
-const gAltGrCharacters = ["{", "}", "[", "]", "\\", "@", "~", "|"];

@@ -132,3 +132,17 @@ document.addEventListener("keydown", function (keyDownEvent) {
     wrongKeyInput();
   }
 });
+
+/**
+ * Listener if mouse is currently moved
+ */
+document.addEventListener('mousemove', function () {
+  const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
+  let timer;
+
+  eSettingsIcon.style.opacity = 1;
+  clearTimeout(timer);
+  timer = setTimeout(function () {
+    eSettingsIcon.style.opacity = 0;
+  }, 5000);
+});
