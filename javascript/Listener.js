@@ -151,8 +151,8 @@ document.addEventListener('mousemove', function () {
   const eSettingsIcon = document.getElementById(gsIDSettingsIcon);
 
   eSettingsIcon.style.opacity = 1;
-  clearTimeout(gMouseMoveRimer);
-  gMouseMoveRimer = setTimeout(function () {
+  clearTimeout(gMouseMoverTimer);
+  gMouseMoverTimer = setTimeout(function () {
     eSettingsIcon.style.opacity = 0;
   }, 5000);
 });
@@ -165,6 +165,11 @@ document.addEventListener('mousemove', function () {
 /* Click on Settings Icon */
 /******************************************************************************************************/
 document.getElementById(gsIDSettingsIcon).addEventListener('click', function () {
+  // Nicht "klicken" können, wenn opacitiy 1 ist.
+  if (parseInt(window.getComputedStyle(this).getPropertyValue("opacity")) === 0)
+    return;
+
+
 
   // Settings reinsliden lassen
   const eSettings = document.getElementById(gsIDSettings);

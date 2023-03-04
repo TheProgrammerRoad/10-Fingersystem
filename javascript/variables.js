@@ -38,7 +38,7 @@ const giCharacterWhiteSpaceDivWidth = 50; /* Breite des Current Character für W
 let gbTimerRunning = false;
 
 // Mouse Moves
-let gMouseMoveRimer = null;
+let gMouseMoverTimer = null;
 
 /***********************************************************************************************/
 // Settings
