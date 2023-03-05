@@ -4,6 +4,8 @@
 
   /* Color Values*/
   --cMainBlue: lightskyblue;
+  --cVeryLightMainBlue: rgb(238, 248, 255);
+  
   --cDarkGray: rgb(102, 102, 102);
   --cThinGray: rgb(207, 207, 207);
   --cVeryThinGray: rgb(235, 235, 235);

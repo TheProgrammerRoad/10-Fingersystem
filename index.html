@@ -24,8 +24,29 @@
     </div>
     <div class="CharactersContainer" id="charactersContainer"></div>
 
-    <div class="Settings" id="settings"></div>
+    <div class="Settings" id="settings">
+        <h2>User Settings</h2>
+        <form>
+          <div class="settings-row">
+            <div class="setting-name">Privacy Settings</div>
+            <div class="setting-element">
+              <select id="allow-contact" name="allow-contact">
+                <option value="everyone">Everyone</option>
+                <option value="only-friends">Only Friends</option>
+                <option value="no-one">No One</option>
+              </select>
+            </div>
+          </div>
+        </form>      
+    </div>
     
+
+
+
+
+
+
+
     <script src="javascript/assert.js"></script>
     <script src="javascript/htmlTool.js"></script>
     <script src="javascript/variables.js"></script>
