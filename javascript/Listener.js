@@ -173,7 +173,7 @@ document.getElementById(gsIDSettingsIcon).addEventListener('click', function () 
 
   // Settings reinsliden lassen
   const eSettings = document.getElementById(gsIDSettings);
-  eSettings.style.top = this.classList.contains('clicked') ? -50 + "%" : '0';
+  eSettings.style.top = this.classList.contains('clicked') ? '-240px' : '0';
 
   // Icon togglen. 
   // Am Ende togglen

@@ -25,31 +25,50 @@
     <div class="CharactersContainer" id="charactersContainer"></div>
 
     <div class="Settings" id="settings">
-        <h2>User Settings</h2>
-        <form>
-          <div class="settings-row">
-            <div class="setting-name">Privacy Settings</div>
-            <div class="setting-element">
-              <select id="allow-contact" name="allow-contact">
-                <option value="everyone">Everyone</option>
-                <option value="only-friends">Only Friends</option>
-                <option value="no-one">No One</option>
-              </select>
-            </div>
-          </div>
-        </form>      
+      <h2 class="SettingsHeader">Einstellungen</h2>
+      <form class="SettingsForm">
+        <div class="SettingsLayout">
+          <div class="SettingName">Anzahl Zeichen pro Lauf:</div>
+          <select class="SettingsSelect">
+            <option value="amountCharacterSetting50">50</option>
+            <option value="amountCharacterSetting100">100</option>
+            <option value="amountCharacterSetting150">150</option>
+            <option value="amountCharacterSetting200">200</option>
+            <option value="amountCharacterSetting250">250</option>
+            <option value="amountCharacterSetting300">300</option>
+            <option value="amountCharacterSetting350">350</option>
+            <option value="amountCharacterSetting400">400</option>
+            <option value="amountCharacterSetting450">450</option>
+            <option value="amountCharacterSetting500">500</option>
+          </select>
+          
+          <div class="SettingName">Zeichen-Auswahl:</div>
+          <select class="SettingsSelect">
+            <option value="characterSetSetting1">Alle Zeichen</option>
+            <option value="characterSetSetting2">Alle Zeichen für linke Hand</option>
+            <option value="characterSetSetting3">Alle Zeichen für rechte Hand</option>
+            <option value="characterSetSetting4">a-z</option>
+            <option value="characterSetSetting5">a-z; &lt; , . - # +</option>
+            <option value="characterSetSetting6">A-Z; a-z</option>
+            <option value="characterSetSetting7">A-Z; a-z; &lt; &gt; , ; . : - _ # ' + *</option>
+            <option value="characterSetSetting8">a-z; 1-ß</option>
+            <option value="characterSetSetting9">A-Z; a-z; 1-ß</option>
+            <option value="characterSetSetting10">A-Z; a-z; 1-ß; &lt; &gt; , ; . : - _ # ' + *</option>
+            <option value="characterSetSetting11">a-z; 1-ß; !-`</option>
+            <option value="characterSetSetting12">A-Z; a-z; 1-ß; !-`</option>
+            <option value="characterSetSetting13">A-Z; a-z; 1-ß; !-`; &lt; &gt; , ; . : - _ # ' + *</option>
+          </select>
+          
+          <div class="SettingName">Font:</div>
+          <select class="SettingsSelect" id="fontSettingsSelect"></select>
+        </div>
+      </form>      
     </div>
-    
-
-
-
-
-
-
 
     <script src="javascript/assert.js"></script>
     <script src="javascript/htmlTool.js"></script>
     <script src="javascript/variables.js"></script>
+    <script src="javascript/settings.js"></script>
     <script src="javascript/timer.js"></script>
     <script src="javascript/characters.js"></script>
     <script src="javascript/Listener.js"></script>

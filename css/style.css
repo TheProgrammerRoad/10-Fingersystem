@@ -65,11 +65,19 @@ body {
 }
 
 .Settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   position: fixed;
-  top: -50%;
+  top: -240px;
   left: 25%;
-  width: 50%;
-  height: 50%;
+  right: 25%;
+  height: 200px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+
   border: none;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -77,6 +85,29 @@ body {
   background-color: var(--cVeryLightMainBlue);
 
   transition: top 0.2s ease-out;
+}
+
+.SettingsForm {
+  width: 100%;
+}
+
+.SettingsLayout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.SettingName {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+/* Alle Comboboxen */
+.SettingsSelect {
+  padding: 5px;
+  width: 100%;
 }
 
 
@@ -114,38 +145,5 @@ body {
 .FinishedWithErrorContainer {
   color: var(--cFailed);
   font-family: 'Rubik Iso';
-}
-
-
-
-
-
-
-
-
-
-.settings-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.setting-name {
-  flex: 1 1 200px;
-  font-weight: bold;
-  margin-right: 20px;
-}
-
-.setting-element {
-  flex: 1 1 auto;
-}
-
-input[type="text"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
 }
 
